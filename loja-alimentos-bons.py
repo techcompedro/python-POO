@@ -49,7 +49,7 @@ class Estoque:
     def remove(self, codproduto):
         for produto in self.__listaprodutos:
             if codproduto == produto.cod:
-                self.__listaprodutos.remove(codproduto)
+                self.__listaprodutos.remove(produto)
 
     def exibirdisponiveil(self):
         for produto in self.__listaprodutos:
@@ -58,8 +58,15 @@ class Estoque:
 
     def exibirindisponiveil(self):
         for produto in self.__listaprodutos:
-            if produto.qtn >= 0:
+            if produto.qtn <= 0:
                 print(produto.exibirinfo())
+
+    def all(self):
+        for produto in self.__listaprodutos:
+            print(produto.exibirinfo())
+
+
+
 
 
 al1 = Alimento(nome="Arroz", cod=1, valor=20.50, qtd=50, validade=(2025, 1, 10), peso="1kg")
@@ -88,5 +95,11 @@ estoque.addlista(beb3)
 estoque.addlista(beb4)
 estoque.addlista(beb5)
 
-estoque.exibirdisponiveil()
+
+
+
+
+estoque.all()
+print('='*30)
+
 
